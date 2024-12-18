@@ -8,4 +8,4 @@
 # Реализация проекта:
 - 06.11 - Создана структура проекта, добавлены описания для разделов.
 - 20.11 - Добавлен логотип и кнопки.
-- 01.12 - vhttps://www.figma.com/design/oJQimhrQ7AoWLJSmovjlKX/ementor?node-id=0-1&p=f&t=nwbKsbsGOFTTTQct-0
+- 01.12 - https://www.figma.com/design/oJQimhrQ7AoWLJSmovjlKX/ementor?node-id=1-6&t=nwbKsbsGOFTTTQct-0
