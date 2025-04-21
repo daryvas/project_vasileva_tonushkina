@@ -3,84 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ПереводчикPRO</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПереводчикPRO - Профессиональные курсы переводчиков</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .courses {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .course-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .course-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .course-content {
+            padding: 1.5rem;
+        }
+        
+        .course-content h3 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .course-content p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+        
+        .social-links a {
+            color: white;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+        }
+    </style>
 </head>
 <body>
-  <header>
-      <h1>С ПереводчикPRO ты станешь мастером перевода</h1>
-      <img alt="logo" width="250" length="250" src="./images/logo.png">
-     <nav>
-            <ul class="menu">
-              <li class="menu__item menu__item--active"
-                   <a class="menu__link" href="index.html">Главная</a>
-              </li>
-              <li class="menu__item">
-                  <a class="menu__link" href="#">Курсы</a>
-              </li>
-              <li class="menu__item">
-                   <a class="menu__link" href="#">О нас</a>
-              </li>
-              <li class="menu__item">
-                   <a class="menu__link" href="#">Наши преподаватели</a>
-              </li>
-              <li class="menu__item">
-                  <a class="menu__link" href="#">Контакты</a>
-              </li>
-          </ul>
-      </nav>
-    <button>Выбрать курс</button>
-  </header>
-<main class="main">
-    <section>
-    <div>
-        <ul>
-            <li>
-                <img alt="перев" width="100" length="100" src="./images/ДЛЯ ПРОЕКТА.png">
-                <h3>Повышение квалификации</h3> 
-                <p>Длительность: 50 часов</p>
-                <p>Модулей: 3</p>
-                <a href="#">Узнать подробнее</a>
-                <span>От 10 000 P</span>
-            </li>
-            <li>
-                <img alt="перев" width="100" length="100" src="./images/упс.png">
-                <h3>Устная переводческая скоропись</h3> 
-                <p>Длительность: 35 часов</p>
-                <p>Модулей: 3</p>
-                <a href="#">Узнать подробнее</a>
-                <span>От 6 500 P</span>
-            </li>
-            <li>
-                <img alt="перев" width="100" length="100" src="./images/спец.png">
-                <h3>Специальный перевод</h3> 
-                <p>Длительность: 40 часов</p>
-                <p>Модулей: 3</p>
-                <a href="#">Узнать подробнее</a>
-                <span>От 8 500 P</span>
-            </li>
-        </ul>
-        <h2>Курсы для переводчиков</h2>
-        <a href="#" target="_blank">Все курсы</a>
-    </div>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Переводчик<span>PRO</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#">Курсы</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Отзывы</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
     
-    <sectiom>
-        <form action="/"
-            <h1>Вход в личный кабинет</h1>
-            <input type="tel" name="phone" placeholder="Номер телефона" required>
-            <input type="password" name="password" placeholder="Пароль" required>
-            <button>Войти</button>
-            <button>Регистрация</button>
-       </form>
-    </sectiom>
+    <section class="hero">
+        <div class="container">
+            <h1>Стань профессиональным переводчиком</h1>
+            <p>Освойте востребованную профессию с нуля или повысьте свою квалификацию с нашими курсами перевода</p>
+            <a href="#" class="btn">Выбрать курс</a>
+        </div>
+    </section>
+    
+    <section class="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши курсы</h2>
+                <p>Выберите подходящий для вас курс и начните обучение уже сегодня</p>
+            </div>
+            
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1526779259212-939e64788e3c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <h3>Английский для переводчиков</h3>
+                        <p>Полный курс профессионального перевода с английского языка и на английский язык</p>
+                        <a href="#" class="btn">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <h3>Технический перевод</h3>
+                        <p>Специализация по переводу технической документации и специализированных текстов</p>
+                        <a href="#" class="btn">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <h3>Юридический перевод</h3>
+                        <p>Освойте особенности перевода юридических документов и договоров</p>
+                        <a href="#" class="btn">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <footer>
-        <p>Сайт создан Васильевой Дарьей и Тонушкиной Юлией группа ЛВ-22</p>
-        <ul>
-            <li><a href="#">Правовая оговорка</a></li>
-            <li><a href="#">Пользовательское соглашение</a></li>
-            <li><a href="#">Политика конфидециальности</a></li>
-        </ul>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О нас</h3>
+                    <p>ПереводчикPRO - это профессиональные курсы подготовки переводчиков с 2010 года.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email: info@perevodchikpro.ru</p>
+                    <p>Телефон: +7 (123) 456-78-90</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Социальные сети</h3>
+                    <div class="social-links">
+                        <a href="#">VK</a>
+                        <a href="#">Telegram</a>
+                        <a href="#">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 ПереводчикPRO. Все права защищены.</p>
+            </div>
+        </div>
     </footer>
-</main>
 </body>
 </html>
