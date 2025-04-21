@@ -1,1 +1,473 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсы - ПереводчикPRO | Профессиональные курсы переводчиков</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        .page-header {
+            background-color: #3498db;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumbs {
+            padding: 1rem 0;
+            background-color: #ecf0f1;
+        }
+        
+        .breadcrumbs a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        
+        .courses-list {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+        }
+        
+        .filter-group label {
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+        
+        select {
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .course-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .course-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .course-content {
+            padding: 1.5rem;
+        }
+        
+        .course-content h3 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .course-price {
+            font-weight: bold;
+            color: #27ae60;
+            font-size: 1.2rem;
+        }
+        
+        .course-content p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #3498db;
+            color: #3498db;
+        }
+        
+        .btn-outline:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+        
+        .social-links a {
+            color: white;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Переводчик<span>PRO</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="courses.html" class="active">Курсы</a></li>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="reviews.html">Отзывы</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="index.html">Главная</a> > <span>Курсы</span>
+        </div>
+    </div>
+    
+    <section class="page-header">
+        <div class="container">
+            <h1>Все курсы ПереводчикPRO</h1>
+            <p>Выберите подходящий курс и начните свой путь в профессии переводчика</p>
+        </div>
+    </section>
+    
+    <section class="courses-list">
+        <div class="container">
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label for="category">Категория:</label>
+                    <select id="category">
+                        <option>Все категории</option>
+                        <option>Английский язык</option>
+                        <option>Немецкий язык</option>
+                        <option>Французский язык</option>
+                        <option>Технический перевод</option>
+                        <option>Юридический перевод</option>
+                        <option>Медицинский перевод</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="level">Уровень:</label>
+                    <select id="level">
+                        <option>Любой уровень</option>
+                        <option>Начинающий</option>
+                        <option>Средний</option>
+                        <option>Продвинутый</option>
+                        <option>Профессиональный</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="format">Формат:</label>
+                    <select id="format">
+                        <option>Любой формат</option>
+                        <option>Онлайн</option>
+                        <option>Оффлайн</option>
+                        <option>Индивидуально</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1526779259212-939e64788e3c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <h3>Английский для переводчиков</h3>
+                        <div class="course-meta">
+                            <span>Уровень: Начинающий</span>
+                            <span>Длительность: 3 мес.</span>
+                        </div>
+                        <div class="course-price">15 000 руб.</div>
+                        <p>Полный курс профессионального перевода с английского языка и на английский язык для начинающих.</p>
+                        <a href="#" class="btn">Записаться</a>
+                        <a href="#" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <h3>Технический перевод</h3>
+                        <div class="course-meta">
+                            <span>Уровень: Профессиональный</span>
+                            <span>Длительность: 4 мес.</span>
+                        </div>
+                        <div class="course-price">20 000 руб.</div>
+                        <p>Специализация по переводу технической документации и специализированных текстов.</p>
+                        <a href="#" class="btn">Записаться</a>
+                        <a href="#" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <h3>Юридический перевод</h3>
+                        <div class="course-meta">
+                            <span>Уровень: Продвинутый</span>
+                            <span>Длительность: 3 мес.</span>
+                        </div>
+                        <div class="course-price">18 000 руб.</div>
+                        <p>Освойте особенности перевода юридических документов, договоров и законодательных актов.</p>
+                        <a href="#" class="btn">Записаться</a>
+                        <a href="#" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <h3>Медицинский перевод</h3>
+                        <div class="course-meta">
+                            <span>Уровень: Продвинутый</span>
+                            <span>Длительность: 4 мес.</span>
+                        </div>
+                        <div class="course-price">22 000 руб.</div>
+                        <p>Специализированный курс по переводу медицинских текстов, инструкций и научных статей.</p>
+                        <a href="#" class="btn">Записаться</a>
+                        <a href="#" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <h3>Немецкий для переводчиков</h3>
+                        <div class="course-meta">
+                            <span>Уровень: Средний</span>
+                            <span>Длительность: 3 мес.</span>
+                        </div>
+                        <div class="course-price">16 000 руб.</div>
+                        <p>Курс профессионального перевода с немецкого языка с упором на деловую коммуникацию.</p>
+                        <a href="#" class="btn">Записаться</a>
+                        <a href="#" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <h3>Французский для переводчиков</h3>
+                        <div class="course-meta">
+                            <span>Уровень: Начинающий</span>
+                            <span>Длительность: 3 мес.</span>
+                        </div>
+                        <div class="course-price">15 000 руб.</div>
+                        <p>Основы перевода с французского языка с практикой работы с художественными текстами.</p>
+                        <a href="#" class="btn">Записаться</a>
+                        <a href="#" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <h3>Перевод фильмов и сериалов</h3>
+                        <div class="course-meta">
+                            <span>Уровень: Средний</span>
+                            <span>Длительность: 2 мес.</span>
+                        </div>
+                        <div class="course-price">14 000 руб.</div>
+                        <p>Освойте особенности субтитрирования и дубляжа аудиовизуальных произведений.</p>
+                        <a href="#" class="btn">Записаться</a>
+                        <a href="#" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <h3>Перевод деловой документации</h3>
+                        <div class="course-meta">
+                            <span>Уровень: Продвинутый</span>
+                            <span>Длительность: 2 мес.</span>
+                        </div>
+                        <div class="course-price">12 000 руб.</div>
+                        <p>Специализированный курс по переводу контрактов, отчетов и деловой переписки.</p>
+                        <a href="#" class="btn">Записаться</a>
+                        <a href="#" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О нас</h3>
+                    <p>ПереводчикPRO - это профессиональные курсы подготовки переводчиков с 2010 года.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email: info@perevodchikpro.ru</p>
+                    <p>Телефон: +7 (123) 456-78-90</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Социальные сети</h3>
+                    <div class="social-links">
+                        <a href="#">VK</a>
+                        <a href="#">Telegram</a>
+                        <a href="#">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 ПереводчикPRO. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
