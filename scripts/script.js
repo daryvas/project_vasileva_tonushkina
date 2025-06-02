@@ -22,4 +22,41 @@ document.querySelectorAll('.course-card .btn').forEach(btn => {
     alert('Здесь будет информация о курсе');
   });
 });
+const menuLinks = document.querySelectorAll('nav a[href^="#"]');
 
+menuLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const targetSection = document.querySelector(targetId);
+    
+    if (targetSection) {
+      window.scrollTo({
+        top: targetSection.offsetTop - 80,
+        behavior: 'smooth'
+      });
+      
+      // Пометить активный пункт меню
+      menuLinks.forEach(item => item.classList.remove('active'));
+      this.classList.add('active');
+    }
+  });
+});
+
+// ===== 2. Анимация карточек =====
+const courseCards = document.querySelectorAll('.course-card');
+
+courseCards.forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    card.style.transform = 'translateY(-10px)';
+    card.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.boxShadow = '';
+  });
+});
+
+// ===== 3. Проверка подключения =====
+console.log('Скрипты успешно подключены!');
