@@ -1,6 +1,6 @@
 console.log("Скрипт работает!");
 document.querySelector('.copyright p').innerHTML = 
-  `&copy; ${new Date().getFullYear()} Переводчик. Все права защищены.`;
+  `&copy; ${new Date().getFullYear()} ПереводчикPRO. Все права защищены.`;
 document.querySelector('.hero .btn').addEventListener('click', (e) => {
   e.preventDefault();
   document.querySelector('.courses').scrollIntoView({ behavior: 'smooth' });
