@@ -1,6 +1,6 @@
 console.log("Скрипт работает!");
 document.querySelector('.copyright p').innerHTML = 
-  `&copy; ${new Date().getFullYear()} ПереводчикPRO100. Все права защищены.`;
+  `&copy; ${new Date().getFullYear()} ПереводчикPRO. Все права защищены.`;
 document.querySelector('.hero .btn').addEventListener('click', (e) => {
   e.preventDefault();
   document.querySelector('.courses').scrollIntoView({ behavior: 'smooth' });
@@ -19,7 +19,7 @@ cards.forEach(card => {
 document.querySelectorAll('.course-card .btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
-    alert('Здесь будет информация');
+    alert('Здесь будет информация о курсе');
   });
 });
 
