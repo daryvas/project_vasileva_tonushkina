@@ -19,7 +19,7 @@ cards.forEach(card => {
 document.querySelectorAll('.course-card .btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
-    alert('Здесь будет информация о курсе!');
+    alert('Здесь будет информация');
   });
 });
 
