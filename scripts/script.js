@@ -1,79 +1,79 @@
 console.log("Скрипт работает!");
 
 /**
- * АЛГОРИТМ ПЛАВНОГО СКРОЛЛА:
- * 1. Проверяем, что href содержит валидный селектор
- * 2. Отменяем стандартное поведение ссылки
- * 3. Находим целевую секцию
- * 4. Выполняем плавный скролл
- * 5. Обновляем активное состояние меню
+ * ОСНОВНЫЕ ФУНКЦИИ ПРОЕКТА:
+ * 1. Плавный скролл
+ * 2. Анимация карточек
+ * 3. Фильтрация курсов
  */
 
-// Константы
+// ========== КОНСТАНТЫ И ЭЛЕМЕНТЫ ==========
 const SCROLL_OFFSET = 80;
-
-// Основные элементы
-const menuLinks = document.querySelectorAll('nav a[href]');
+const menuLinks = document.querySelectorAll('nav a[href^="#"]');
 const courseCards = document.querySelectorAll('.course-card');
 const heroBtn = document.querySelector('.hero .btn');
 const courseGrid = document.querySelector('.course-grid');
 const copyrightElement = document.querySelector('.copyright p');
+const filterForm = document.querySelector('.filter-bar');
 
-// Функция проверки валидного селектора
-function isValidSelector(selector) {
-  try {
-    document.querySelector(selector);
-    return true;
-  } catch {
-    return false;
-  }
+// ========== ФУНКЦИЯ ФИЛЬТРАЦИИ КУРСОВ ==========
+function filterCourses() {
+  const category = document.getElementById('category')?.value;
+  const level = document.getElementById('level')?.value;
+  const format = document.getElementById('format')?.value;
+
+  if (!category || !level || !format) return;
+
+  courseCards.forEach(card => {
+    const matchesCategory = category === 'Все категории' || card.dataset.category === category;
+    const matchesLevel = level === 'Любой уровень' || card.dataset.level === level;
+    const matchesFormat = format === 'Любой формат' || card.dataset.format === format;
+
+    card.style.display = matchesCategory && matchesLevel && matchesFormat ? 'block' : 'none';
+  });
+  console.log(`Фильтр применен: Категория=${category}, Уровень=${level}, Формат=${format}`);
 }
 
-// Функция плавного скролла
+// ========== ПЛАВНЫЙ СКРОЛЛ ==========
 function handleSmoothScroll(e) {
-  const targetId = this.getAttribute('href');
-  
-  // Пропускаем обработку, если это не якорная ссылка
-  if (!targetId.startsWith('#') || targetId === '#') {
-    return;
-  }
-
-  // Проверяем валидность селектора
-  if (!isValidSelector(targetId)) {
-    console.error(`Невалидный селектор: ${targetId}`);
-    return;
-  }
-
   e.preventDefault();
-  
-  const targetSection = document.querySelector(targetId);
-  if (!targetSection) {
-    console.error(`Элемент не найден: ${targetId}`);
-    return;
-  }
+  const targetId = this.getAttribute('href');
+  if (targetId === '#') return;
 
-  console.log(`Скролл к ${targetId}`);
-  window.scrollTo({
-    top: targetSection.offsetTop - SCROLL_OFFSET,
-    behavior: 'smooth'
-  });
-  
-  menuLinks.forEach(item => item.classList.remove('active'));
-  this.classList.add('active');
+  const targetSection = document.querySelector(targetId);
+  if (targetSection) {
+    window.scrollTo({
+      top: targetSection.offsetTop - SCROLL_OFFSET,
+      behavior: 'smooth'
+    });
+    menuLinks.forEach(link => link.classList.remove('active'));
+    this.classList.add('active');
+  }
 }
 
-// ... остальные функции без изменений ...
-
+// ========== ИНИЦИАЛИЗАЦИЯ ==========
 function init() {
-  // Обновление года в футере
-  copyrightElement.innerHTML = `&copy; ${new Date().getFullYear()} ПереводчикPRO. Все права защищены.`;
+  // Обновление года
+  copyrightElement.innerHTML = `&copy; ${new Date().getFullYear()} ПереводчикPRO`;
   
-  // Плавный скролл для меню
-  menuLinks.forEach(link => {
-    link.addEventListener('click', handleSmoothScroll);
+  // Плавный скролл
+  menuLinks.forEach(link => link.addEventListener('click', handleSmoothScroll));
+
+  // Кнопка "Выбрать курс"
+  heroBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('.courses')?.scrollIntoView({ behavior: 'smooth' });
   });
 
-  // ... остальная инициализация без изменений ...
+  // Фильтр курсов (только на странице courses.html)
+  if (filterForm) {
+    filterForm.querySelectorAll('select').forEach(select => {
+      select.addEventListener('change', filterCourses);
+    });
+    console.log('Модуль фильтрации активирован');
+  }
+
+  console.log('Все модули инициализированы');
 }
 
 init();
