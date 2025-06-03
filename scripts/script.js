@@ -78,7 +78,6 @@ menuLinks.forEach(link => {
     }
   });
 });
-const courseCards = document.querySelectorAll('.course-card');
 courseCards.forEach(card => {
   card.addEventListener('mouseenter', () => {
     card.style.transform = 'translateY(-10px)';
