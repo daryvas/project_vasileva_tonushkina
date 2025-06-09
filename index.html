@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ПереводчикPRO - Профессиональные курсы переводчиков</title>
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/style.css">
-</head>
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <script src="scripts/script.js" defer></script>
 </head>
 <body>
     <header>
@@ -18,12 +18,13 @@
                 <nav>
                     <ul>
                         <li><a href="#">Главная</a></li>
-                         <li><a href="courses.html">Курсы</a></li>
+                        <li><a href="courses.html">Курсы</a></li>
                         <li><a href="#">О нас</a></li>
                         <li><a href="#">Отзывы</a></li>
                         <li><a href="#">Контакты</a></li>
                     </ul>
                 </nav>
+                <button class="btn login-btn" id="login-btn">Войти</button>
             </div>
         </div>
     </header>
@@ -32,7 +33,7 @@
         <div class="container">
             <h1>Стань профессиональным переводчиком</h1>
             <p>Освойте востребованную профессию с нуля или повысьте свою квалификацию с нашими курсами перевода</p>
-            <a href="#" class="btn">Выбрать курс</a>
+            <a href="#" class="btn btn-primary">Выбрать курс</a>
         </div>
     </section>
     
@@ -40,36 +41,16 @@
         <div class="container">
             <div class="section-title">
                 <h2>Наши курсы</h2>
-                <p>Выберите подходящий для вас курс и начните обучение уже сегодня</p>
+                <p>Выберите подходящий курс и начните обучение уже сегодня</p>
             </div>
             
-            <div class="course-grid">
-                <div class="course-card">
-                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1526779259212-939e64788e3c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="course-content">
-                        <h3>Английский для переводчиков</h3>
-                        <p>Полный курс профессионального перевода с английского языка и на английский язык</p>
-                        <a href="#" class="btn">Подробнее</a>
-                    </div>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <!-- Карточки курсов будут динамически добавлены с использованием script.js -->
                 </div>
-                
-                <div class="course-card">
-                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="course-content">
-                        <h3>Технический перевод</h3>
-                        <p>Специализация по переводу технической документации и специализированных текстов</p>
-                        <a href="#" class="btn">Подробнее</a>
-                    </div>
-                </div>
-                
-                <div class="course-card">
-                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="course-content">
-                        <h3>Юридический перевод</h3>
-                        <p>Освойте особенности перевода юридических документов и договоров</p>
-                        <a href="#" class="btn">Подробнее</a>
-                    </div>
-                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </div>
     </section>
@@ -103,8 +84,43 @@
             </div>
         </div>
     </footer>
-        <p>Сайт создан Васильевой Дарьей и Тонушкиной Юлией группа ЛВ-22</p>
-        <ul>
-            <script src="scripts/script.js"></script>
+
+    <!-- Модальное окно  -->
+    <div class="dialog" id="dialog-layout" hidden>
+        <div class="dialog__content">
+            <button class="dialog__close" data-close>×</button>
+            <div id="popup-select">
+                <h2>Выберите действие</h2>
+                <button class="btn" data-login>Вход</button>
+                <button class="btn" data-registration>Регистрация</button>
+            </div>
+            <form id="popup-login" hidden>
+                <h2>Вход</h2>
+                <label for="userlogin">Логин:</label>
+                <input type="text" id="userlogin" required>
+                <label for="userpassword">Пароль:</label>
+                <input type="password" id="userpassword" required>
+                <p id="error-message-login" class="error"></p>
+                <button type="submit" class="btn">Войти</button>
+            </form>
+            <form id="popup-registration" hidden>
+                <h2>Регистрация</h2>
+                <label for="username">Имя:</label>
+                <input type="text" id="username" required>
+                <label for="login">Логин:</label>
+                <input type="text" id="login" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" required>
+                <label for="confirm-password">Подтвердите пароль:</label>
+                <input type="password" id="confirm-password" required>
+                <p id="error-message" class="error"></p>
+                <button type="submit" class="btn">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>
